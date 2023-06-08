@@ -50,3 +50,31 @@ li a:hover:not(.active) {
     left: 12%
 }
 
+.logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 12.5%;
+}
+
+nav {
+    position: absolute;
+    top: 11%;
+    width: calc(100% - 10px);
+}
+
+.tekst {
+    position: absolute;
+    top: 20%;
+}
+
+form {
+    position: absolute;
+    top: 20%;
+    width: calc(100% - 10px);
+}
+
+
+
+
