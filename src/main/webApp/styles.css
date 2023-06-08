@@ -1,0 +1,52 @@
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #2C2B2B;
+}
+
+li {
+    float: left;
+    width: calc(100%/8);
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: black;
+}
+
+.active {
+    background-color: green;
+}
+
+.inputLogin {
+    position: absolute;
+    left: 8%;
+}
+
+.inputAfspraak {
+    position: absolute;
+    left: 7%
+}
+
+.inputRegistreren {
+    position: absolute;
+    left: 12%;
+}
+
+.cancelAfspraak {
+    position: absolute;
+    left: 7%
+}
+
+.cancelRegistreren {
+    position: absolute;
+    left: 12%
+}
+
