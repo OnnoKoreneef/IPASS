@@ -1,6 +1,11 @@
 import {baseURL} from "../../backendServerConfig";
 
-export default class AfspraakService {
+class AfspraakService {
+    getAfspraaken(klant) {
+        const url = `${baseURL}/v1/afspraak/${klant}`;
+        return fetch(url).then((response) => response.json());
+    }
+
     addAfspraak(afspraak) {
         const url = `${baseURL}/v1/afspraak`;
         const options = {
