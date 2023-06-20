@@ -4,12 +4,86 @@
     <meta charset="UTF-8">
     <title>Durenbeg</title>
     <link rel="stylesheet" href="../styles/algemeen.css" />
+    <link rel="stylesheet" href="../styles/gegevens.css" />
 </head>
 <body>
     <header>
         <img src="../images/Logo.jpg" alt="logo" class="logo">
         <h1>Durenbeg</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="duurzaamheid.html">Duurzaamheid</a></li>
+                <li><a href="renovatie.html">Renovatie</a></li>
+                <li><a href="begeleiding.html">Begeleiding</a></li>
+                <li><a href="advies.html">Advies</a></li>
+                <li><a href="afspraak.html">Afspraak maken</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-
+    <main>
+        <div class="gegevens">
+            <fieldset>
+                <legend><h2>Gegevens</h2></legend>
+                <div class="informatie">
+                    <div>Voornaam: </div> <div id="voornaam"></div>
+                    <div>Achternaam: </div> <div id="achternaam"></div>
+                    <div>Woonplaats: </div> <div id="woonplaats"></div>
+                    <div>Straatnaam: </div> <div id="straatnaam"></div>
+                    <div>Huisnummer: </div> <div id="huisnummer"></div>
+                    <div>Telefoonnummer: </div> <div id="telefoonnummer"></div>
+                    <div>Email: </div> <div id="email"></div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><h2>Afspraak</h2></legend>
+                <table class="tabel">
+                    <tr>
+                        <th class="tabelHead">Datum</th>
+                        <th class="tabelHead">Begintijd</th>
+                        <th class="tabelHead">Eindtijd</th>
+                        <th class="tabelHead">Woonplaats</th>
+                        <th class="tabelHead">Straatnaam</th>
+                        <th class="tabelHead">Huisnummer</th>
+                        <th class="tabelHead">Onderwerp</th>
+                        <th class="tabelHead">Offerte</th>
+                    </tr>
+                    <tr>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend><h2>Offerte</h2></legend>
+                <table class="tabel">
+                    <tr>
+                        <th class="tabelHead">Onderwerp</th>
+                        <th class="tabelHead">Bedrag</th>
+                        <th class="tabelHead">Nummer</th>
+                        <th class="tabelHead">Datum</th>
+                        <th class="tabelHead">Geldigheid</th>
+                        <th class="tabelHead">Omschrijving</th>
+                    </tr>
+                    <tr>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                        <td class="tabelBody"></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </main>
 </body>
 </html>

@@ -1,0 +1,25 @@
+.gegevens {
+    position: absolute;
+    top: 20%;
+    width: calc(100% - 10px);
+}
+
+.informatie {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: auto auto;
+}
+
+.tabel {
+    width: 100%;
+    border: black 1px solid;
+}
+
+.tabelHead {
+    border: black 1px solid;
+}
+
+.tabelBody {
+    border: black 1px solid;
+    height: 14px;
+}

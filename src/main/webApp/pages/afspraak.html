@@ -18,7 +18,7 @@
                 <li><a href="renovatie.html">Renovatie</a></li>
                 <li><a href="begeleiding.html">Begeleiding</a></li>
                 <li><a href="advies.html">Advies</a></li>
-                <li><a class="active" href="afspraak.html">model.Afspraak maken</a></li>
+                <li><a class="active" href="afspraak.html">Afspraak maken</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -27,7 +27,7 @@
     <main>
         <form>
             <fieldset>
-                <legend><h2>model.Afspraak maken</h2></legend>
+                <legend><h2>Afspraak maken</h2></legend>
                 <label for="datum">Datum: </label>
                 <input id="datum" name="datum" type="date" class="inputAfspraak">
                 <br><br>
@@ -37,8 +37,14 @@
                 <label for="eindTijd">Eind tijd: </label>
                 <input id="eindTijd" name="eindTijd" type="time" class="inputAfspraak">
                 <br><br>
-                <label for="adres">Adres: </label>
-                <input id="adres" name="adres" class="inputAfspraak">
+                <label for="woonplaats">Woonplaats: </label>
+                <input id="woonplaats" name="woonplaats" class="inputAfspraak">
+                <br><br>
+                <label for="straatnaam">Straatnaam: </label>
+                <input id="straatnaam" name="straatnaam" class="inputAfspraak">
+                <br><br>
+                <label for="huisnummer">Huisnummer: </label>
+                <input id="huisnummer" name="huisnummer" type="number" class="inputAfspraak">
                 <br><br>
                 <label for="onderwerp">Onderwerp: </label>
                 <select id="onderwerp" name="onderwerp" class="inputAfspraak">
@@ -50,7 +56,7 @@
                 </select>
                 <br><br>
                 <button type="submit" class="submitAfspraak">Submit</button>
-                <button type="cancel" class="cancelAfspraak">Cancel</button>
+                <button type="reset" class="cancelAfspraak">Cancel</button>
             </fieldset>
         </form>
 

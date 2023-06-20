@@ -20,4 +20,36 @@ public class Klant {
         this.nummer = nummer;
         this.telefoonnummer = telefoonnummer;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getWachtwoord() {
+        return wachtwoord;
+    }
+
+    public String getVoornaam() {
+        return voornaam;
+    }
+
+    public String getAchternaam() {
+        return achternaam;
+    }
+
+    public String getWoonplaats() {
+        return woonplaats;
+    }
+
+    public String getStraatnaam() {
+        return straatnaam;
+    }
+
+    public int getNummer() {
+        return nummer;
+    }
+
+    public String getTelefoonnummer() {
+        return telefoonnummer;
+    }
 }

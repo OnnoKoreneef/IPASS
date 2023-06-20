@@ -34,4 +34,15 @@ public class Bedrijf {
     public void addAfspraak(Afspraak afspraak) {
         afspraken.add(afspraak);
     }
+
+    public boolean ingelogd(String email, String wachtwoord) {
+        boolean ingelogd = false;
+        for (Klant klant : klanten) {
+            if (klant.getEmail().equals(email) && klant.getWachtwoord().equals(wachtwoord)) {
+                ingelogd = true;
+                break;
+            }
+        }
+        return ingelogd;
+    }
 }
