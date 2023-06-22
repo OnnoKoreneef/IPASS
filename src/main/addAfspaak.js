@@ -1,1 +1,0 @@
-import './webApp/javascript/afprakenlist';

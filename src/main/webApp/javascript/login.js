@@ -1,10 +1,11 @@
+import {addGegevens} from "./gegevens";
+
 const loginForm = document.getElementById("loginForm")
 const loginButton = document.getElementById("loginButton");
+let ingelogd = false;
 
 loginButton.addEventListener("click", login);
-
 async function login(event) {
-    let ingelogd = false
     event.preventDefault();
     const email = loginForm.email.value;
     const wachtwoord = loginForm.wachtwoord.value;
@@ -12,11 +13,13 @@ async function login(event) {
     for (const klant of klanten) {
         if (klant.email === email && klant.wachtwoord === wachtwoord) {
             ingelogd = true;
+            await addGegevens(klant);
             break;
         }
     }
     if (ingelogd) {
-        window.open("../index.html");
+        document.getElementById("login").innerHTML = "Mijn account";
+        window.location.href = "../pages/gegevens.html";
     } else {
         alert("wachtwoord of email klopt niet");
     }
