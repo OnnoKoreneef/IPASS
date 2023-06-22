@@ -1,5 +1,12 @@
 package model;
 
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,14 +42,7 @@ public class Bedrijf {
         afspraken.add(afspraak);
     }
 
-    public boolean ingelogd(String email, String wachtwoord) {
-        boolean ingelogd = false;
-        for (Klant klant : klanten) {
-            if (klant.getEmail().equals(email) && klant.getWachtwoord().equals(wachtwoord)) {
-                ingelogd = true;
-                break;
-            }
-        }
-        return ingelogd;
+    public List<Klant> getKlanten() {
+        return klanten;
     }
 }

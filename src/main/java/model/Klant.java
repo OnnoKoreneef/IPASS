@@ -52,4 +52,6 @@ public class Klant {
     public String getTelefoonnummer() {
         return telefoonnummer;
     }
+
+
 }

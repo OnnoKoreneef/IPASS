@@ -1,1 +1,1 @@
-import './java/javascript/afprakenlist';
+import './webApp/javascript/afprakenlist';

@@ -1,5 +1,5 @@
-import Afspraak from '../model/Afspraak.java';
-import { afspraakService} from '../service/afspraakService';
+import Afspraak from '/model/Afspraak.java';
+import "/service/afspraakService";
 
 function submit(event) {
     event.preventDefault();
