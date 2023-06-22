@@ -1,12 +1,5 @@
 package model;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +23,12 @@ public class Bedrijf {
         this.btwNummer = btwNummer;
     }
 
+    public Bedrijf() {}
+
+    public Bedrijf getBedrijf() {
+        return this;
+    }
+
     public void addMedewerker(Medewerker medewerker) {
         medewerkers.add(medewerker);
     }
@@ -44,5 +43,10 @@ public class Bedrijf {
 
     public List<Klant> getKlanten() {
         return klanten;
+    }
+
+    public void createKlant(String voornaam, String achternaam, String email, String wachtwoord, String woonplaats, String straatnaam, int huisnummer, String telefoonnummer){
+        Klant klant = new Klant(voornaam, achternaam, email, wachtwoord, woonplaats, straatnaam, huisnummer, telefoonnummer);
+        klanten.add(klant);
     }
 }

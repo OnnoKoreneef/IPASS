@@ -5,6 +5,7 @@
     <title>Durenbeg</title>
     <link rel="stylesheet" href="../styles/algemeen.css" />
     <link rel="stylesheet" href="../styles/registreren.css"/>
+    <script type="module" src="../javascript/registreren.js"></script>
 </head>
 <body>
     <header>
@@ -24,7 +25,7 @@
         </nav>
     </header>
     <main>
-        <form>
+        <form id="registerenForm">
             <fieldset>
                 <legend><h2>Registreren</h2></legend>
                 <label for="voornaam">Voornaam: </label>
@@ -54,7 +55,7 @@
                 <label for="herWachtwoord">Herhaling Wachtwoord: </label>
                 <input id="herWachtwoord" name="herWachtwoord" type="password" class="inputRegistreren">
                 <br><br>
-                <button type="submit" class="submitRegistreren">Submit</button>
+                <button type="submit" class="submitRegistreren" id="submitRegisteren">Submit</button>
                 <button type="reset" class="cancelRegistreren">Cancel</button>
             </fieldset>
         </form>

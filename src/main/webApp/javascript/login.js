@@ -1,4 +1,4 @@
-import {addGegevens} from "./gegevens";
+// import {addGegevens} from "./gegevens";
 
 const loginForm = document.getElementById("loginForm")
 const loginButton = document.getElementById("loginButton");
@@ -23,6 +23,26 @@ async function login(event) {
     } else {
         alert("wachtwoord of email klopt niet");
     }
+}
+
+async function addGegevens(gegevens) {
+    const url = "http://localhost:8080/restservices/gegevens";
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(gegevens),
+    }
+    console.log("hello")
+    fetch(url, options)
+        .then((response) => response.json())
+        .then((gegevens) => {
+            console.log("hello2");
+            console.log(gegevens);
+    }).catch((error) => {
+            console.log(error);
+        })
 }
 
 async function getKlanten() {

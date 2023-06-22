@@ -7,17 +7,17 @@ public class Klant {
     private String wachtwoord;
     private String woonplaats;
     private String straatnaam;
-    private int nummer;
+    private int huisnummer;
     private String telefoonnummer;
 
-    public Klant(String voornaam, String achternaam, String email, String wachtwoord, String woonplaats, String straatnaam, int nummer, String telefoonnummer) {
+    public Klant(String voornaam, String achternaam, String email, String wachtwoord, String woonplaats, String straatnaam, int huisnummer, String telefoonnummer) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
         this.wachtwoord = wachtwoord;
         this.woonplaats = woonplaats;
         this.straatnaam = straatnaam;
-        this.nummer = nummer;
+        this.huisnummer = huisnummer;
         this.telefoonnummer = telefoonnummer;
     }
 
@@ -45,13 +45,11 @@ public class Klant {
         return straatnaam;
     }
 
-    public int getNummer() {
-        return nummer;
+    public int getHuisnummer() {
+        return huisnummer;
     }
 
     public String getTelefoonnummer() {
         return telefoonnummer;
     }
-
-
 }
