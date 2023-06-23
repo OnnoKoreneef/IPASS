@@ -1,5 +1,3 @@
-// import {addGegevens} from "./gegevens";
-
 const loginForm = document.getElementById("loginForm")
 const loginButton = document.getElementById("loginButton");
 let ingelogd = false;
@@ -13,36 +11,17 @@ async function login(event) {
     for (const klant of klanten) {
         if (klant.email === email && klant.wachtwoord === wachtwoord) {
             ingelogd = true;
-            await addGegevens(klant);
             break;
         }
     }
     if (ingelogd) {
         document.getElementById("login").innerHTML = "Mijn account";
-        window.location.href = "../pages/gegevens.html";
+        // await laadGegevens(email);
+        console.log("testing")
+        // window.location.href = "../pages/gegevens.html";
     } else {
         alert("wachtwoord of email klopt niet");
     }
-}
-
-async function addGegevens(gegevens) {
-    const url = "http://localhost:8080/restservices/gegevens";
-    const options = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(gegevens),
-    }
-    console.log("hello")
-    fetch(url, options)
-        .then((response) => response.json())
-        .then((gegevens) => {
-            console.log("hello2");
-            console.log(gegevens);
-    }).catch((error) => {
-            console.log(error);
-        })
 }
 
 async function getKlanten() {

@@ -3,34 +3,49 @@ package webservices;
 import model.Bedrijf;
 import model.Klant;
 
+import javax.annotation.PostConstruct;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.json.JsonReader;
+import javax.servlet.ServletContext;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.StringReader;
 import java.util.ArrayList;
 
-import static javax.ws.rs.core.Response.serverError;
+
 
 @Path("/klanten")
 public class KlantResources {
+    @Context
+    private ServletContext servletContext;
+    private Bedrijf bedrijf;
+
+    @PostConstruct
+    private void init() {
+        bedrijf = (Bedrijf) servletContext.getAttribute("bedrijf");
+    }
+
     @GET
     @Produces("application/json")
     public ArrayList<Klant> getKlanten() {
-        ArrayList<Klant> klanten = new ArrayList<>();
-        Klant onno = new Klant("Onno", "Koreneef", "onnokoreneef@hotmail.nl", "W8woord!", "Bennekom", "Cederlaan", 5, "0638485404");
-        Klant pierre = new Klant("Pierre", "Koreneef", "phkoreneef@hotmail.com", "1", "Bunnik", "Ds pasmastraat", 5, "06244676398");
-        klanten.add(onno);
-        klanten.add(pierre);
-        return klanten;
+        return bedrijf.getKlanten();
+    }
+
+    @Path("{email}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getKlant(@PathParam("email") String email) {
+        Klant klant = Bedrijf.getKlant(bedrijf.getKlanten(), email);
+        return Response.ok(klant).build();
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public String createGegevens(String jsonBody) {
+    public String addKlant(String jsonBody) {
         JsonObjectBuilder responseObject = Json.createObjectBuilder();
 
         try {
@@ -47,8 +62,6 @@ public class KlantResources {
             int huisnummer = jsonObject.getInt("huisnummer");
             String telefoonnummer = jsonObject.getString("telefoonnummer");
 
-            Bedrijf bedrijf = new Bedrijf();
-
             bedrijf.createKlant(voornaam, achternaam, email, wachtwoord, woonplaats, straatnaam, huisnummer, telefoonnummer);
             responseObject.add("message", "Klant toegevoegd");
         } catch (Exception e) {
@@ -56,12 +69,4 @@ public class KlantResources {
         }
         return responseObject.build().toString();
     }
-
-//    @PUT
-//    @Path("{email}")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public Response updateKlant(@PathParam("email") String email, Klant klant) {
-//
-//    }
 }

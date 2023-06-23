@@ -10,9 +10,9 @@ public class Bedrijf {
     private int nummer;
     private int kvk;
     private int btwNummer;
-    private List<Medewerker> medewerkers = new ArrayList<Medewerker>();
-    private List<Klant> klanten = new ArrayList<Klant>();
-    private List<Afspraak> afspraken = new ArrayList<Afspraak>();
+    private ArrayList<Medewerker> medewerkers = new ArrayList<Medewerker>();
+    private ArrayList<Klant> klanten = new ArrayList<Klant>();
+    private ArrayList<Afspraak> afspraken = new ArrayList<Afspraak>();
 
     public Bedrijf(String naam, String woonplaats, String straatnaam, int nummer, int kvk, int btwNummer) {
         this.naam = naam;
@@ -22,8 +22,6 @@ public class Bedrijf {
         this.kvk = kvk;
         this.btwNummer = btwNummer;
     }
-
-    public Bedrijf() {}
 
     public Bedrijf getBedrijf() {
         return this;
@@ -41,7 +39,16 @@ public class Bedrijf {
         afspraken.add(afspraak);
     }
 
-    public List<Klant> getKlanten() {
+    public static Klant getKlant(ArrayList<Klant> klanten , String email) {
+        for (Klant klant: klanten) {
+            if (klant.getEmail().equals(email)) {
+                return klant;
+            }
+        }
+        return null ;
+    }
+
+    public ArrayList<Klant> getKlanten() {
         return klanten;
     }
 

@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Klant {
     private String voornaam;
     private String achternaam;
@@ -52,4 +54,7 @@ public class Klant {
     public String getTelefoonnummer() {
         return telefoonnummer;
     }
+
+
+
 }
