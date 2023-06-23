@@ -5,20 +5,18 @@ let ingelogd = false;
 loginButton.addEventListener("click", login);
 async function login(event) {
     event.preventDefault();
-    const email = loginForm.email.value;
+    const emailForm = loginForm.email.value;
     const wachtwoord = loginForm.wachtwoord.value;
     const klanten = await getKlantenLijst();
     for (const klant of klanten) {
-        if (klant.email === email && klant.wachtwoord === wachtwoord) {
+        if (klant.email === emailForm && klant.wachtwoord === wachtwoord) {
             ingelogd = true;
             break;
         }
     }
     if (ingelogd) {
         document.getElementById("login").innerHTML = "Mijn account";
-        // await laadGegevens(email);
-        console.log("testing")
-        // window.location.href = "../pages/gegevens.html";
+        window.location.href = `../pages/gegevens.html?email=${encodeURIComponent(emailForm)}`;
     } else {
         alert("wachtwoord of email klopt niet");
     }
@@ -34,4 +32,9 @@ async function getKlantenLijst() {
     const klanten = await getKlanten();
     klanten.forEach(klant => klantenLijst.push(klant))
     return klantenLijst;
+}
+
+async function getKlant(email) {
+    const url = `http://localhost:8080/restservices/klanten/${email}`
+    return fetch(url).then((response) => response.json());
 }
