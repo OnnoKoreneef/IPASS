@@ -5,7 +5,7 @@
     <title>Durenbeg</title>
     <link rel="stylesheet" href="../styles/algemeen.css" />
     <link rel="stylesheet" href="../styles/afspraak.css" />
-    <script src="../../addAfspaak.js"></script>
+    <script src="../javascript/afspraak.js"></script>
 </head>
 <body>
     <header>
@@ -25,29 +25,29 @@
         </nav>
     </header>
     <main>
-        <form>
+        <form id="afspraakForm">
             <fieldset>
                 <legend><h2>Afspraak maken</h2></legend>
-                <label for="datum">Datum: </label>
-                <input id="datum" name="datum" type="date" class="inputAfspraak">
+                <label for="datum-field">Datum: </label>
+                <input id="datum-field" name="datum" type="date" class="inputAfspraak">
                 <br><br>
-                <label for="beginTijd">Begin tijd: </label>
-                <input id="beginTijd" name="beginTijd" type="time" class="inputAfspraak">
+                <label for="beginTijd-field">Begin tijd: </label>
+                <input id="beginTijd-field" name="beginTijd" type="time" class="inputAfspraak">
                 <br><br>
-                <label for="eindTijd">Eind tijd: </label>
-                <input id="eindTijd" name="eindTijd" type="time" class="inputAfspraak">
+                <label for="eindTijd-field">Eind tijd: </label>
+                <input id="eindTijd-field" name="eindTijd" type="time" class="inputAfspraak">
                 <br><br>
-                <label for="woonplaats">Woonplaats: </label>
-                <input id="woonplaats" name="woonplaats" class="inputAfspraak">
+                <label for="woonplaats-field">Woonplaats: </label>
+                <input id="woonplaats-field" name="woonplaats" class="inputAfspraak">
                 <br><br>
-                <label for="straatnaam">Straatnaam: </label>
-                <input id="straatnaam" name="straatnaam" class="inputAfspraak">
+                <label for="straatnaam-field">Straatnaam: </label>
+                <input id="straatnaam-field" name="straatnaam" class="inputAfspraak">
                 <br><br>
-                <label for="huisnummer">Huisnummer: </label>
-                <input id="huisnummer" name="huisnummer" type="number" class="inputAfspraak">
+                <label for="huisnummer-field">Huisnummer: </label>
+                <input id="huisnummer-field" name="huisnummer" type="number" class="inputAfspraak">
                 <br><br>
-                <label for="onderwerp">Onderwerp: </label>
-                <select id="onderwerp" name="onderwerp" class="inputAfspraak">
+                <label for="onderwerp-field">Onderwerp: </label>
+                <select id="onderwerp-field" name="onderwerp" class="inputAfspraak">
                     <option></option>
                     <option>Duurzaamheid</option>
                     <option>Renovatie</option>

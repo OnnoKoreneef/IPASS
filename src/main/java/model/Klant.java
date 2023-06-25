@@ -11,6 +11,8 @@ public class Klant {
     private String straatnaam;
     private int huisnummer;
     private String telefoonnummer;
+    private ArrayList<Afspraak> afspraken = new ArrayList<Afspraak>();
+
 
     public Klant(String voornaam, String achternaam, String email, String wachtwoord, String woonplaats, String straatnaam, int huisnummer, String telefoonnummer) {
         this.voornaam = voornaam;
@@ -27,34 +29,9 @@ public class Klant {
         return email;
     }
 
-    public String getWachtwoord() {
-        return wachtwoord;
+    public ArrayList<Afspraak> getAfspraken(){ return afspraken;}
+
+    public void addAfspraak(Afspraak afspraak) {
+        afspraken.add(afspraak);
     }
-
-    public String getVoornaam() {
-        return voornaam;
-    }
-
-    public String getAchternaam() {
-        return achternaam;
-    }
-
-    public String getWoonplaats() {
-        return woonplaats;
-    }
-
-    public String getStraatnaam() {
-        return straatnaam;
-    }
-
-    public int getHuisnummer() {
-        return huisnummer;
-    }
-
-    public String getTelefoonnummer() {
-        return telefoonnummer;
-    }
-
-
-
 }

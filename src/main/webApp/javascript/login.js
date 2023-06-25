@@ -33,8 +33,3 @@ async function getKlantenLijst() {
     klanten.forEach(klant => klantenLijst.push(klant))
     return klantenLijst;
 }
-
-async function getKlant(email) {
-    const url = `http://localhost:8080/restservices/klanten/${email}`
-    return fetch(url).then((response) => response.json());
-}

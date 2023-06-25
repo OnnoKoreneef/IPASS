@@ -1,11 +1,10 @@
 const registrerenForm = document.getElementById("registerenForm");
-const registrerenButton = document.getElementById("submitRegisteren");
 
-addEventListener("submit", registreren);
+registrerenForm.addEventListener("submit", registreren);
 
 async function registreren(event) {
     event.preventDefault();
-    let data = {
+    const data = {
         voornaam: registrerenForm.voornaam.value,
         achternaam: registrerenForm.achternaam.value,
         woonplaats: registrerenForm.woonplaats.value,
@@ -15,6 +14,7 @@ async function registreren(event) {
         email: registrerenForm.email.value,
         wachtwoord: registrerenForm.wachtwoord.value,
     }
+
     const url = "http://localhost:8080/restservices/klanten";
     const options = {
         method: "POST",

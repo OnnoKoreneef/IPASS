@@ -45,7 +45,7 @@ public class KlantResources {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public String addKlant(String jsonBody) {
+    public Response addKlant(String jsonBody) {
         JsonObjectBuilder responseObject = Json.createObjectBuilder();
 
         try {
@@ -62,11 +62,13 @@ public class KlantResources {
             int huisnummer = jsonObject.getInt("huisnummer");
             String telefoonnummer = jsonObject.getString("telefoonnummer");
 
-            bedrijf.createKlant(voornaam, achternaam, email, wachtwoord, woonplaats, straatnaam, huisnummer, telefoonnummer);
+            Klant klant = new Klant(voornaam, achternaam, email, wachtwoord, woonplaats, straatnaam, huisnummer, telefoonnummer);
+            bedrijf.addKlant(klant);
+
             responseObject.add("message", "Klant toegevoegd");
         } catch (Exception e) {
             responseObject.add("message", "Error " + e.getMessage());
         }
-        return responseObject.build().toString();
+        return Response.ok(responseObject).build();
     }
 }
