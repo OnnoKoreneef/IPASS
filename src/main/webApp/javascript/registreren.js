@@ -11,7 +11,7 @@ async function registreren(event) {
         straatnaam: registrerenForm.straatnaam.value,
         huisnummer: registrerenForm.huisnummer.value,
         telefoonnummer: registrerenForm.telefoonnummer.value,
-        email: registrerenForm.email.value,
+        email: registrerenForm.emailKlant.value,
         wachtwoord: registrerenForm.wachtwoord.value,
     }
 

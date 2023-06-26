@@ -1,9 +1,6 @@
 package setup;
 
-import model.Afspraak;
-import model.Bedrijf;
-import model.Klant;
-import model.Medewerker;
+import model.*;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -24,17 +21,23 @@ public class MyServletContextListener implements ServletContextListener {
         Klant friso = new Klant("Friso", "Harff", "frisoharff@hotmail.com", "1", "Losser", "De Pol", 4, "0610403974");
         Medewerker pierre = new Medewerker("Pierre", "Koreneef", "phkoreneef@hotmail.com", "0624467398", "oprichter");
         Medewerker aileen = new Medewerker("Aileen", "Jones", "aileenjones@hotmail.com", "0634041387", "medewerker");
-        Afspraak afspraak1 = new Afspraak(LocalDate.now().plusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Bennekom", "cederlaan", 5, "Duurzaamheid", pierre);
-        Afspraak afspraak2 = new Afspraak(LocalDate.now().minusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Bennekom", "cederlaan", 5, "Duurzaamheid", pierre);
-        Afspraak afspraak3 = new Afspraak(LocalDate.now().plusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Losser", "De pol", 5, "Advies", aileen);
+        Afspraak afspraak1 = new Afspraak(LocalDate.now().minusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Bennekom", "cederlaan", 5, "Duurzaamheid");
+        Afspraak afspraak2 = new Afspraak(LocalDate.now().plusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Bennekom", "cederlaan", 5, "Duurzaamheid");
+        Afspraak afspraak3 = new Afspraak(LocalDate.now().plusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Losser", "De pol", 5, "Advies");
+        Offerte offerte = new Offerte("Duurzaamheid", 100, 1, LocalDate.now().minusDays(1), "Ja", "Dit is een omschrijving");
 
         durenbeg.addMedewerker(pierre);
         durenbeg.addMedewerker(aileen);
         durenbeg.addKlant(onno);
         durenbeg.addKlant(friso);
+        afspraak1.setMedewerker(pierre);
+        afspraak2.setMedewerker(pierre);
+        afspraak3.setMedewerker(aileen);
+        afspraak1.setOfferte(offerte);
         onno.addAfspraak(afspraak1);
         onno.addAfspraak(afspraak2);
         friso.addAfspraak(afspraak3);
+
 
         ServletContext servletContext = sce.getServletContext();
         servletContext.setAttribute("bedrijf", durenbeg);

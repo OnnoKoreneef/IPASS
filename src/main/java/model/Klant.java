@@ -29,6 +29,33 @@ public class Klant {
         return email;
     }
 
+    public String getVoornaam() {
+        return voornaam;
+    }
+
+    public String getAchternaam() {
+        return achternaam;
+    }
+
+    public String getWachtwoord() {
+        return wachtwoord;
+    }
+
+    public String getWoonplaats() {
+        return woonplaats;
+    }
+
+    public String getStraatnaam() {
+        return straatnaam;
+    }
+
+    public int getHuisnummer() {
+        return huisnummer;
+    }
+
+    public String getTelefoonnummer() {
+        return telefoonnummer;
+    }
     public ArrayList<Afspraak> getAfspraken(){ return afspraken;}
 
     public void addAfspraak(Afspraak afspraak) {

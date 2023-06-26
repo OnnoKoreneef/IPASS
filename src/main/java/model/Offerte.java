@@ -18,4 +18,28 @@ public class Offerte {
         this.geldigheid = geldigheid;
         this.omschrijving = omschrijving;
     }
+
+    public String getOnderwerp() {
+        return onderwerp;
+    }
+
+    public int getBedrag() {
+        return bedrag;
+    }
+
+    public int getNummer() {
+        return nummer;
+    }
+
+    public LocalDate getDatum() {
+        return datum;
+    }
+
+    public String getGeldigheid() {
+        return geldigheid;
+    }
+
+    public String getOmschrijving() {
+        return omschrijving;
+    }
 }

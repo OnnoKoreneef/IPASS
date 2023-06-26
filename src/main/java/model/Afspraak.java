@@ -1,5 +1,6 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,9 +12,10 @@ public class Afspraak {
     private String straatnaam;
     private int huisNummer;
     private String onderwerp;
-    private Medewerker medewerker;
+    private String medewerker;
+    private Offerte offerte;
 
-    public Afspraak(LocalDate datum, LocalTime beginTijd, LocalTime eindTijd, String woonplaats, String straatnaam, int huisNummer, String onderwerp, Medewerker medewerker) {
+    public Afspraak(LocalDate datum, LocalTime beginTijd, LocalTime eindTijd, String woonplaats, String straatnaam, int huisNummer, String onderwerp) {
         this.datum = datum;
         this.beginTijd = beginTijd;
         this.eindTijd = eindTijd;
@@ -21,6 +23,51 @@ public class Afspraak {
         this.straatnaam = straatnaam;
         this.huisNummer = huisNummer;
         this.onderwerp = onderwerp;
-        this.medewerker = medewerker;
+    }
+
+    public LocalDate getDatum() {
+        return datum;
+    }
+
+    public LocalTime getBeginTijd() {
+        return beginTijd;
+    }
+
+    public LocalTime getEindTijd() {
+        return eindTijd;
+    }
+
+    public String getWoonplaats() {
+        return woonplaats;
+    }
+
+    public String getStraatnaam() {
+        return straatnaam;
+    }
+
+    public int getHuisNummer() {
+        return huisNummer;
+    }
+
+    public String getOnderwerp() {
+        return onderwerp;
+    }
+
+    public String getMedewerker() {
+        return medewerker;
+    }
+
+    public void setMedewerker(Medewerker medewerker) {
+        String voornaam = medewerker.getVoornaam();
+        String achternaam = medewerker.getAchternaam();
+        this.medewerker = voornaam + " " + achternaam;
+    }
+
+    public Offerte getOfferte() {
+        return offerte;
+    }
+
+    public void setOfferte(Offerte offerte) {
+        this.offerte = offerte;
     }
 }

@@ -12,23 +12,122 @@ await laadGegevens(email);
 async function laadGegevens(email) {
     try {
         const klant = await getKlant(email);
-
-        console.log(klant);
         const voornaam = klant.voornaam;
         const achternaam = klant.achternaam;
-        const klantEmail = klant.email;
+        const emailKlant = klant.email;
         const woonplaats = klant.woonplaats;
         const straatnaam = klant.straatnaam;
         const nummer = klant.huisnummer;
         const telefoonnummer = klant.telefoonnummer;
+        const afspraken = klant.afspraken;
 
         document.getElementById("voornaam").innerHTML = voornaam;
         document.getElementById("achternaam").innerHTML = achternaam;
-        document.getElementById("email").innerHTML = klantEmail;
+        document.getElementById("email").innerHTML = emailKlant;
         document.getElementById("woonplaats").innerHTML = woonplaats;
         document.getElementById("straatnaam").innerHTML = straatnaam;
         document.getElementById("huisnummer").innerHTML = nummer;
         document.getElementById("telefoonnummer").innerHTML = telefoonnummer
+
+        const afspraakTabel = document.getElementById("afspraakTabel");
+        const dateFormater = new Intl.DateTimeFormat("en-GB", {
+            day: "2-digit",
+            month: "long",
+            year: "numeric"
+        })
+        const timeFormater = new Intl.DateTimeFormat("en-GB",{
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+        })
+
+        for (const afspraak of afspraken) {
+            const afspraakDatumArray = afspraak.datum;
+            const beginTijdArray = afspraak.beginTijd;
+            const eindTijdArray = afspraak.eindTijd;
+            const woonplaats = afspraak.woonplaats;
+            const straatnaam = afspraak.straatnaam;
+            const huisNummer = afspraak.huisNummer;
+            const onderwerp = afspraak.onderwerp;
+            const offerte = afspraak.offerte;
+
+            const beginTijd = new Date();
+            beginTijd.setHours(beginTijdArray[0]);
+            beginTijd.setMinutes(beginTijdArray[1]);
+            const eindTijd = new Date();
+            eindTijd.setHours(eindTijdArray[0]);
+            eindTijd.setMinutes(eindTijdArray[1]);
+            const afspraakDatum = new Date(afspraakDatumArray[0], afspraakDatumArray[1] - 1, afspraakDatumArray[2]);
+            const formattedBeginTijd = timeFormater.format(beginTijd);
+            const formattedEindTijd = timeFormater.format(eindTijd);
+            const formattedAfspraakDatum = dateFormater.format(afspraakDatum);
+
+            const afspraakRow = afspraakTabel.insertRow();
+            const cell1 = afspraakRow.insertCell(0);
+            const cell2 = afspraakRow.insertCell(1);
+            const cell3 = afspraakRow.insertCell(2);
+            const cell4 = afspraakRow.insertCell(3);
+            const cell5 = afspraakRow.insertCell(4);
+            const cell6 = afspraakRow.insertCell(5);
+            const cell7 = afspraakRow.insertCell(6);
+            const cell8 = afspraakRow.insertCell(7);
+
+            cell1.setAttribute("class", "tabelBody");
+            cell2.setAttribute("class", "tabelBody");
+            cell3.setAttribute("class", "tabelBody");
+            cell4.setAttribute("class", "tabelBody");
+            cell5.setAttribute("class", "tabelBody");
+            cell6.setAttribute("class", "tabelBody");
+            cell7.setAttribute("class", "tabelBody");
+            cell8.setAttribute("class", "tabelBody");
+
+            cell1.innerHTML = formattedAfspraakDatum;
+            cell2.innerHTML = formattedBeginTijd;
+            cell3.innerHTML = formattedEindTijd;
+            cell4.innerHTML = woonplaats;
+            cell5.innerHTML = straatnaam;
+            cell6.innerHTML = huisNummer;
+            cell7.innerHTML = onderwerp;
+
+            if (offerte === null) {
+                cell8.innerHTML = "nee";
+            } else {
+                cell8.innerHTML = "ja";
+
+                const offertesTabel = document.getElementById("offertesTabel");
+                const onderwerp = offerte.onderwerp;
+                const bedrag = offerte.bedrag;
+                const nummer = offerte.nummer;
+                const offerteDatumArray = offerte.datum;
+                const geldigheid = offerte.geldigheid;
+                const omschrijving = offerte.omschrijving;
+
+                const offerteDatum = new Date(offerteDatumArray[0], offerteDatumArray[1] - 1, offerteDatumArray[2]);
+                const formattedOfferteDatum = dateFormater.format(offerteDatum);
+
+                const offerteRow = offertesTabel.insertRow();
+                const cell1 = offerteRow.insertCell(0);
+                const cell2 = offerteRow.insertCell(1);
+                const cell3 = offerteRow.insertCell(2);
+                const cell4 = offerteRow.insertCell(3);
+                const cell5 = offerteRow.insertCell(4);
+                const cell6 = offerteRow.insertCell(5);
+
+                cell1.setAttribute("class", "tabelBody");
+                cell2.setAttribute("class", "tabelBody");
+                cell3.setAttribute("class", "tabelBody");
+                cell4.setAttribute("class", "tabelBody");
+                cell5.setAttribute("class", "tabelBody");
+                cell6.setAttribute("class", "tabelBody");
+
+                cell1.innerHTML = onderwerp;
+                cell2.innerHTML = bedrag;
+                cell3.innerHTML = nummer;
+                cell4.innerHTML = formattedOfferteDatum;
+                cell5.innerHTML = geldigheid;
+                cell6.innerHTML = omschrijving;
+            }
+        }
     } catch (error) {
         console.log("An error occured while loading customer data:", error.message);
     }

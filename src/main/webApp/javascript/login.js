@@ -5,10 +5,12 @@ let ingelogd = false;
 loginButton.addEventListener("click", login);
 async function login(event) {
     event.preventDefault();
-    const emailForm = loginForm.email.value;
+    const emailForm = loginForm.emailForm.value;
     const wachtwoord = loginForm.wachtwoord.value;
     const klanten = await getKlantenLijst();
     for (const klant of klanten) {
+        console.log(klant.email);
+        console.log(klant.wachtwoord);
         if (klant.email === emailForm && klant.wachtwoord === wachtwoord) {
             ingelogd = true;
             break;

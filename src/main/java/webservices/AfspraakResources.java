@@ -60,10 +60,9 @@ public class AfspraakResources {
             Bedrijf bedrijf = (Bedrijf) servletContext.getAttribute("bedrijf");
             Klant klant = (Klant) servletContext.getAttribute("onnokoreneef@hotmail.nl");
             ArrayList<Medewerker> medewerkers = bedrijf.getMedewerkers();
-            Medewerker medewerker = medewerkers.get(0);
 
-            Afspraak afspraak = new Afspraak(datum, beginTijd, eindTijd, woonplaats, straatnaam, huisNummer, onderwerp, medewerker);
-            bedrijf.addAfspraak(afspraak);
+            Afspraak afspraak = new Afspraak(datum, beginTijd, eindTijd, woonplaats, straatnaam, huisNummer, onderwerp);
+            afspraak.setMedewerker(medewerkers.get(0));
             klant.addAfspraak(afspraak);
 
             responseObject.add("message", "Afspraak gemaakt");

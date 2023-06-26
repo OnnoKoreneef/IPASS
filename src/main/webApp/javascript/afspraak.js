@@ -2,6 +2,11 @@ const afspraakForm = document.getElementById("afspraakForm");
 
 afspraakForm.addEventListener("submit", createAfspraak);
 
+export async function getAfspraken(email) {
+    const url = `http://localhost:8080/restservices/afspraken/${email}`
+    return fetch(url).then((response) => response.json());
+}
+
 async function createAfspraak(event) {
     event.preventDefault();
     const data = {
