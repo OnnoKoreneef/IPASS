@@ -59,16 +59,16 @@ public class KlantResources {
             String wachtwoord = jsonObject.getString("wachtwoord");
             String woonplaats = jsonObject.getString("woonplaats");
             String straatnaam = jsonObject.getString("straatnaam");
-            int huisnummer = jsonObject.getInt("huisnummer");
+            int huisNummer = Integer.parseInt(jsonObject.getString("huisNummer"));
             String telefoonnummer = jsonObject.getString("telefoonnummer");
 
-            Klant klant = new Klant(voornaam, achternaam, email, wachtwoord, woonplaats, straatnaam, huisnummer, telefoonnummer);
+            Klant klant = new Klant(voornaam, achternaam, email, wachtwoord, woonplaats, straatnaam, huisNummer, telefoonnummer);
             bedrijf.addKlant(klant);
 
             responseObject.add("message", "Klant toegevoegd");
         } catch (Exception e) {
             responseObject.add("message", "Error " + e.getMessage());
         }
-        return Response.ok(responseObject).build();
+        return Response.ok(responseObject.build()).build();
     }
 }

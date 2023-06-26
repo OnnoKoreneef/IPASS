@@ -9,7 +9,7 @@ async function registreren(event) {
         achternaam: registrerenForm.achternaam.value,
         woonplaats: registrerenForm.woonplaats.value,
         straatnaam: registrerenForm.straatnaam.value,
-        huisnummer: registrerenForm.huisnummer.value,
+        huisNummer: registrerenForm.huisNummer.value,
         telefoonnummer: registrerenForm.telefoonnummer.value,
         email: registrerenForm.emailKlant.value,
         wachtwoord: registrerenForm.wachtwoord.value,

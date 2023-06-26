@@ -54,7 +54,7 @@ public class AfspraakResources {
             LocalTime eindTijd = LocalTime.parse(jsonObject.getString("eindTijd"));
             String woonplaats = jsonObject.getString("woonplaats");
             String straatnaam = jsonObject.getString("straatnaam");
-            int huisNummer = jsonObject.getInt("huisNummer");
+            int huisNummer = Integer.parseInt(jsonObject.getString("huisNummer"));
             String onderwerp = jsonObject.getString("onderwerp");
 
             Bedrijf bedrijf = (Bedrijf) servletContext.getAttribute("bedrijf");
