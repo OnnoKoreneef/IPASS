@@ -29,6 +29,10 @@ async function registreren(event) {
         alert("Telefoon number bevat iets anders dan getallen");
         registrerenForm.wachtwoord.value = "";
         registrerenForm.herWachtwoord.value = "";
+    } else if (data.telefoonnummer.length !== 10) {
+        alert("Telefoonnummer heeft niet de goeie lengte");
+        registrerenForm.wachtwoord.value = "";
+        registrerenForm.herWachtwoord.value = "";
     } else if (wachtwoord.length < 8) {
         alert("Wachtwoord moet minstens 8 karakters zijn");
         registrerenForm.wachtwoord.value = "";
