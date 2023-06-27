@@ -14,7 +14,7 @@ async function createAfspraak(event) {
         onderwerp: afspraakForm.onderwerp.value,
     }
 
-    const url = "http://localhost:8080/restservices/afspraken";
+    const url = `http://localhost:8080/restservices/afspraken/onnokoreneef@hotmail.nl`;
     const options = {
         method: "POST",
         headers: {

@@ -30,12 +30,12 @@ async function laadGegevens(email) {
         document.getElementById("telefoonnummer").innerHTML = telefoonnummer
 
         const afspraakTabel = document.getElementById("afspraakTabel");
-        const dateFormater = new Intl.DateTimeFormat("en-GB", {
+        const dateFormatter = new Intl.DateTimeFormat("en-GB", {
             day: "2-digit",
             month: "long",
             year: "numeric"
         })
-        const timeFormater = new Intl.DateTimeFormat("en-GB",{
+        const timeFormatter = new Intl.DateTimeFormat("en-GB",{
             hour: "2-digit",
             minute: "2-digit",
             hour12: false,
@@ -58,9 +58,9 @@ async function laadGegevens(email) {
             eindTijd.setHours(eindTijdArray[0]);
             eindTijd.setMinutes(eindTijdArray[1]);
             const afspraakDatum = new Date(afspraakDatumArray[0], afspraakDatumArray[1] - 1, afspraakDatumArray[2]);
-            const formattedBeginTijd = timeFormater.format(beginTijd);
-            const formattedEindTijd = timeFormater.format(eindTijd);
-            const formattedAfspraakDatum = dateFormater.format(afspraakDatum);
+            const formattedBeginTijd = timeFormatter.format(beginTijd);
+            const formattedEindTijd = timeFormatter.format(eindTijd);
+            const formattedAfspraakDatum = dateFormatter.format(afspraakDatum);
 
             const afspraakRow = afspraakTabel.insertRow();
             const cell1 = afspraakRow.insertCell(0);
@@ -103,7 +103,7 @@ async function laadGegevens(email) {
                 const omschrijving = offerte.omschrijving;
 
                 const offerteDatum = new Date(offerteDatumArray[0], offerteDatumArray[1] - 1, offerteDatumArray[2]);
-                const formattedOfferteDatum = dateFormater.format(offerteDatum);
+                const formattedOfferteDatum = dateFormatter.format(offerteDatum);
 
                 const offerteRow = offertesTabel.insertRow();
                 const cell1 = offerteRow.insertCell(0);

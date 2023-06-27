@@ -5,6 +5,7 @@ import model.Bedrijf;
 import model.Klant;
 import model.Medewerker;
 
+import javax.annotation.PostConstruct;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
@@ -23,6 +24,14 @@ import java.util.ArrayList;
 public class AfspraakResources {
     @Context
     private ServletContext servletContext;
+    private Bedrijf bedrijf;
+    private Klant onno;
+
+    @PostConstruct
+    private void init() {
+        bedrijf = (Bedrijf) servletContext.getAttribute("bedrijf");
+        onno = (Klant) servletContext.getAttribute("onnokoreneef@hotmail.nl");
+    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -57,18 +66,16 @@ public class AfspraakResources {
             int huisNummer = Integer.parseInt(jsonObject.getString("huisNummer"));
             String onderwerp = jsonObject.getString("onderwerp");
 
-            Bedrijf bedrijf = (Bedrijf) servletContext.getAttribute("bedrijf");
-            Klant klant = (Klant) servletContext.getAttribute("onnokoreneef@hotmail.nl");
-            ArrayList<Medewerker> medewerkers = bedrijf.getMedewerkers();
+//            ArrayList<Medewerker> medewerkers = bedrijf.getMedewerkers();
 
             Afspraak afspraak = new Afspraak(datum, beginTijd, eindTijd, woonplaats, straatnaam, huisNummer, onderwerp);
-            afspraak.setMedewerker(medewerkers.get(0));
-            klant.addAfspraak(afspraak);
+//            afspraak.setMedewerker(medewerkers.get(0));
+            onno.addAfspraak(afspraak);
 
             responseObject.add("message", "Afspraak gemaakt");
         } catch (Exception e) {
             responseObject.add("message", "Error " + e.getMessage());
         }
-        return Response.ok(responseObject).build();
+        return Response.ok(responseObject.build()).build();
     }
 }

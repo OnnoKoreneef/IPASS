@@ -1,5 +1,6 @@
 const loginForm = document.getElementById("loginForm")
 const loginButton = document.getElementById("loginButton");
+
 let ingelogd = false;
 
 loginButton.addEventListener("click", login);
@@ -9,8 +10,6 @@ async function login(event) {
     const wachtwoord = loginForm.wachtwoord.value;
     const klanten = await getKlantenLijst();
     for (const klant of klanten) {
-        console.log(klant.email);
-        console.log(klant.wachtwoord);
         if (klant.email === emailForm && klant.wachtwoord === wachtwoord) {
             ingelogd = true;
             break;
@@ -35,3 +34,5 @@ async function getKlantenLijst() {
     klanten.forEach(klant => klantenLijst.push(klant))
     return klantenLijst;
 }
+
+export {ingelogd};
