@@ -9,19 +9,19 @@ public class Klant {
     private String wachtwoord;
     private String woonplaats;
     private String straatnaam;
-    private int huisnummer;
+    private int huisNummer;
     private String telefoonnummer;
     private ArrayList<Afspraak> afspraken = new ArrayList<Afspraak>();
 
 
-    public Klant(String voornaam, String achternaam, String email, String wachtwoord, String woonplaats, String straatnaam, int huisnummer, String telefoonnummer) {
+    public Klant(String voornaam, String achternaam, String email, String wachtwoord, String woonplaats, String straatnaam, int huisNummer, String telefoonnummer) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
         this.email = email;
         this.wachtwoord = wachtwoord;
         this.woonplaats = woonplaats;
         this.straatnaam = straatnaam;
-        this.huisnummer = huisnummer;
+        this.huisNummer = huisNummer;
         this.telefoonnummer = telefoonnummer;
     }
 
@@ -49,8 +49,8 @@ public class Klant {
         return straatnaam;
     }
 
-    public int getHuisnummer() {
-        return huisnummer;
+    public int getHuisNummer() {
+        return huisNummer;
     }
 
     public String getTelefoonnummer() {

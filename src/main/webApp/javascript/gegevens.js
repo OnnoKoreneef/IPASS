@@ -9,7 +9,7 @@ const data = {
     emailKlant: klant.email,
     woonplaats: klant.woonplaats,
     straatnaam: klant.straatnaam,
-    nummer: klant.huisnummer,
+    huisNummer: klant.huisNummer,
     telefoonnummer: klant.telefoonnummer,
     afspraken: klant.afspraken,
 }
@@ -45,7 +45,7 @@ async function laadGegevens(email) {
         document.getElementById("email").innerHTML = data.emailKlant;
         document.getElementById("woonplaats").innerHTML = data.woonplaats;
         document.getElementById("straatnaam").innerHTML = data.straatnaam;
-        document.getElementById("huisnummer").innerHTML = data.nummer;
+        document.getElementById("huisNummer").innerHTML = data.huisNummer;
         document.getElementById("telefoonnummer").innerHTML = data.telefoonnummer
 
         const afspraakTabel = document.getElementById("afspraakTabel");
