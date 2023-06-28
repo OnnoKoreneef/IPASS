@@ -29,6 +29,10 @@ async function registreren(event) {
         alert("Telefoon number bevat iets anders dan getallen");
         registrerenForm.wachtwoord.value = "";
         registrerenForm.herWachtwoord.value = "";
+    } else if (validEmail(email)) {
+        alert("Dit is niet geldig email address");
+        registrerenForm.wachtwoord.value = "";
+        registrerenForm.herWachtwoord.value = "";
     } else if (data.telefoonnummer.length !== 10) {
         alert("Telefoonnummer heeft niet de goeie lengte");
         registrerenForm.wachtwoord.value = "";
@@ -97,4 +101,14 @@ function isIngevuld(gegevens) {
 function containsOnlyNumbers(string) {
     const pattern = /^\d+$/;
     return pattern.test(string);
+}
+
+function validEmail(string) {
+    let valid = false
+    const com = ".com";
+    const nl = ".nl";
+    if (string.includes(com) || string.includes(nl)) {
+        valid = true;
+    }
+    return valid;
 }

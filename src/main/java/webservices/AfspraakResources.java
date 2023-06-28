@@ -49,8 +49,9 @@ public class AfspraakResources {
     }
 
     @POST
+    @Path("/{email}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response addAfspraak(String jsonBody) {
+    public Response addAfspraak(@PathParam("email") String email, String jsonBody) {
         JsonObjectBuilder responseObject = Json.createObjectBuilder();
 
         try {
@@ -66,11 +67,12 @@ public class AfspraakResources {
             int huisNummer = Integer.parseInt(jsonObject.getString("huisNummer"));
             String onderwerp = jsonObject.getString("onderwerp");
 
-//            ArrayList<Medewerker> medewerkers = bedrijf.getMedewerkers();
-
+            ArrayList<Medewerker> medewerkers = bedrijf.getMedewerkers();
             Afspraak afspraak = new Afspraak(datum, beginTijd, eindTijd, woonplaats, straatnaam, huisNummer, onderwerp);
-//            afspraak.setMedewerker(medewerkers.get(0));
-            onno.addAfspraak(afspraak);
+            afspraak.setMedewerker(medewerkers.get(0));
+            Klant klant = Bedrijf.getKlant(bedrijf.getKlanten(), email);
+            assert klant != null;
+            klant.addAfspraak(afspraak);
 
             responseObject.add("message", "Afspraak gemaakt");
         } catch (Exception e) {
