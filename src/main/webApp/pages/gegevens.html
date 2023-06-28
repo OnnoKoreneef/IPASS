@@ -37,6 +37,8 @@
                     <div>Telefoonnummer: </div> <div id="telefoonnummer"></div>
                     <div>Email: </div> <div id="email"></div>
                 </div>
+                <br>
+                <button id="editGegevensButton">Edit</button>
             </fieldset>
             <fieldset>
                 <legend><h2>Afspraken</h2></legend>
@@ -67,6 +69,33 @@
                 </table>
             </fieldset>
         </div>
+        <dialog id="informatie-dialog">
+            <form id="gegevensForm" autocomplete="off">
+                <fieldset>
+                    <legend><h2>Gegevens</h2></legend>
+                    <label for="voornaam-field">Voornaam: </label>
+                    <input id="voornaam-field" name="voornaamForm" class="inputRegistreren">
+                    <br><br>
+                    <label for="achternaam-field">Achternaam: </label>
+                    <input id="achternaam-field" name="achternaamForm" class="inputRegistreren">
+                    <br><br>
+                    <label for="woonplaats-field">Woonplaats: </label>
+                    <input id="woonplaats-field" name="woonplaatsForm" class="inputRegistreren">
+                    <br><br>
+                    <label for="straatnaam-field">Straatnaam: </label>
+                    <input id="straatnaam-field" name="straatnaamForm" class="inputRegistreren">
+                    <br><br>
+                    <label for="huisNummer-field">Huisnummer: </label>
+                    <input id="huisNummer-field" name="huisNummerForm" type="number" class="inputRegistreren">
+                    <br><br>
+                    <label for="telefoonnummer-field">Telefoonnummer: </label>
+                    <input id="telefoonnummer-field" name="telefoonnummerForm" type="tel" class="inputRegistreren">
+                    <br><br>
+                    <label for="email-field">Email: </label>
+                    <input id="email-field" name="emailForm" type="email" class="inputRegistreren">
+                </fieldset>
+            </form>
+        </dialog>
     </main>
 </body>
 </html>

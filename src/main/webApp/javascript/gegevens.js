@@ -2,6 +2,33 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const email = urlParams.get("email");
 
+const klant = await getKlant(email);
+const data = {
+    voornaam: klant.voornaam,
+    achternaam: klant.achternaam,
+    emailKlant: klant.email,
+    woonplaats: klant.woonplaats,
+    straatnaam: klant.straatnaam,
+    nummer: klant.huisnummer,
+    telefoonnummer: klant.telefoonnummer,
+    afspraken: klant.afspraken,
+}
+
+const dialog = document.getElementById("informatie-dialog");
+const editGegevensButton = document.getElementById("editGegevensButton");
+
+editGegevensButton.addEventListener("click", editGegevensDialog);
+function editGegevensDialog() {
+    dialog.show();
+    document.getElementById("voornaam-field").value = data.voornaam;
+    document.getElementById("achternaam-field").value = data.achternaam;
+    document.getElementById("woonplaats-field").value = data.woonplaats;
+    document.getElementById("straatnaam-field").value = data.straatnaam;
+    document.getElementById("huisNummer-field").value = data.huisNummer;
+    document.getElementById("telefoonnummer-field").value = data.telefoonnummer;
+    document.getElementById("email-field").value = data.emailKlant;
+}
+
 async function getKlant(email) {
     const url = `http://localhost:8080/restservices/klanten/${email}`
     return fetch(url).then((response) => response.json());
@@ -11,23 +38,15 @@ await laadGegevens(email);
 
 async function laadGegevens(email) {
     try {
-        const klant = await getKlant(email);
-        const voornaam = klant.voornaam;
-        const achternaam = klant.achternaam;
-        const emailKlant = klant.email;
-        const woonplaats = klant.woonplaats;
-        const straatnaam = klant.straatnaam;
-        const nummer = klant.huisnummer;
-        const telefoonnummer = klant.telefoonnummer;
-        const afspraken = klant.afspraken;
 
-        document.getElementById("voornaam").innerHTML = voornaam;
-        document.getElementById("achternaam").innerHTML = achternaam;
-        document.getElementById("email").innerHTML = emailKlant;
-        document.getElementById("woonplaats").innerHTML = woonplaats;
-        document.getElementById("straatnaam").innerHTML = straatnaam;
-        document.getElementById("huisnummer").innerHTML = nummer;
-        document.getElementById("telefoonnummer").innerHTML = telefoonnummer
+
+        document.getElementById("voornaam").innerHTML = data.voornaam;
+        document.getElementById("achternaam").innerHTML = data.achternaam;
+        document.getElementById("email").innerHTML = data.emailKlant;
+        document.getElementById("woonplaats").innerHTML = data.woonplaats;
+        document.getElementById("straatnaam").innerHTML = data.straatnaam;
+        document.getElementById("huisnummer").innerHTML = data.nummer;
+        document.getElementById("telefoonnummer").innerHTML = data.telefoonnummer
 
         const afspraakTabel = document.getElementById("afspraakTabel");
         const dateFormatter = new Intl.DateTimeFormat("en-GB", {

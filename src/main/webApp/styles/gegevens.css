@@ -22,3 +22,13 @@
 .tabelBody {
     border: black 1px solid;
 }
+
+#informatie-dialog {
+    width: 50%;
+    height: 50%;
+}
+
+#gegevensForm {
+    width: calc(100% - 30px);
+    top: 0;
+}
