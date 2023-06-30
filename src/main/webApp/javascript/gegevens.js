@@ -16,8 +16,10 @@ const data = {
 
 const dialog = document.getElementById("informatie-dialog");
 const editGegevensButton = document.getElementById("editGegevensButton");
+const gegevensForm = document.getElementById("gegevensForm");
 
 editGegevensButton.addEventListener("click", editGegevensDialog);
+gegevensForm.addEventListener("submit", editGegevens);
 function editGegevensDialog() {
     dialog.show();
     document.getElementById("voornaam-field").value = data.voornaam;
@@ -29,6 +31,36 @@ function editGegevensDialog() {
     document.getElementById("email-field").value = data.emailKlant;
 }
 
+function editGegevens(event) {
+    event.preventDefault();
+    const nieuwData = {
+        nieuwVoornaam: gegevensForm.voornaam.value,
+        nieuwAchternaam: gegevensForm.achternaam.value,
+        nieuwWoonplaats: gegevensForm.woonplaats.value,
+        nieuwStraatnaam: gegevensForm.straatnaam.value,
+        nieuwHuisNummer: gegevensForm.huisNummer.value,
+        nieuwTelefoonnummer: gegevensForm.telefoonnummer.value,
+        nieuwEmail: gegevensForm.emailForm.value,
+    }
+
+    const url = `http://localhost:8080/restservices/klanten/${email}`;
+    const options = {
+        method: "PUT",
+        Headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(nieuwData),
+    }
+
+    fetch(url, options).then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+        }).catch((error) => {
+            console.log(error);
+    })
+
+}
+
 async function getKlant(email) {
     const url = `http://localhost:8080/restservices/klanten/${email}`
     return fetch(url).then((response) => response.json());
@@ -38,8 +70,6 @@ await laadGegevens(email);
 
 async function laadGegevens(email) {
     try {
-
-
         document.getElementById("voornaam").innerHTML = data.voornaam;
         document.getElementById("achternaam").innerHTML = data.achternaam;
         document.getElementById("email").innerHTML = data.emailKlant;

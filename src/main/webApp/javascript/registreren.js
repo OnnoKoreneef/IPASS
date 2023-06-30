@@ -15,21 +15,24 @@ async function registreren(event) {
         wachtwoord: registrerenForm.wachtwoord.value,
     }
 
-    console.log(data);
-
     const email = data.email;
     const wachtwoord = data.wachtwoord;
     const herhaalWachtwoord = registrerenForm.herWachtwoord.value;
+    const emailLijst = await getEmailLijst();
 
     if(isIngevuld(data) === false) {
         alert("Niet alles is ingevuld");
+        registrerenForm.wachtwoord.value = "";
+        registrerenForm.herWachtwoord.value = "";
+    } else if (emailLijst.includes(email)) {
+        alert("Er bestaat al een account met dit email");
         registrerenForm.wachtwoord.value = "";
         registrerenForm.herWachtwoord.value = "";
     } else if (containsOnlyNumbers(data.telefoonnummer) === false) {
         alert("Telefoon number bevat iets anders dan getallen");
         registrerenForm.wachtwoord.value = "";
         registrerenForm.herWachtwoord.value = "";
-    } else if (validEmail(email)) {
+    } else if (validEmail(email) === false) {
         alert("Dit is niet geldig email address");
         registrerenForm.wachtwoord.value = "";
         registrerenForm.herWachtwoord.value = "";
@@ -67,6 +70,18 @@ async function registreren(event) {
             }).catch((error) => {
                 console.log(error);
             })}
+}
+
+async function getKlanten(email) {
+    const url = `http://localhost:8080/restservices/klanten`
+    return fetch(url).then((response) => response.json());
+}
+
+async function getEmailLijst() {
+    const emailLijst = []
+    const klanten = await getKlanten();
+    klanten.forEach(klant => emailLijst.push(klant.email))
+    return emailLijst;
 }
 
 function containsNumber(string) {

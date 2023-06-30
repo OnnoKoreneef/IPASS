@@ -2,6 +2,7 @@ package webservices;
 
 import model.Bedrijf;
 import model.Klant;
+import model.KlantRequest;
 
 import javax.annotation.PostConstruct;
 import javax.json.Json;
@@ -71,4 +72,14 @@ public class KlantResources {
         }
         return Response.ok(responseObject.build()).build();
     }
+
+//    @Path("{email}")
+//    @PUT
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    public Response editGegevens(@PathParam("email") String email, KlantRequest klantRequest) {
+//
+//    }
 }
+
+
