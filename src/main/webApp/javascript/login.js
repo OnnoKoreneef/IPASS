@@ -26,7 +26,7 @@ async function login(event) {
 
 async function getKlanten() {
     const url = "http://localhost:8080/restservices/klanten";
-    return fetch(url).then((resolve) => resolve.json())
+    return fetch(url).then((resolve) => resolve.json());
 }
 
 async function getKlantenLijst() {
