@@ -1,7 +1,7 @@
+import {ingelogd, setIngelogd} from "./shared.js";
+
 const loginForm = document.getElementById("loginForm")
 const loginButton = document.getElementById("loginButton");
-
-let ingelogd = false;
 
 loginButton.addEventListener("click", login);
 async function login(event) {
@@ -9,15 +9,16 @@ async function login(event) {
     const emailForm = loginForm.emailForm.value;
     const wachtwoord = loginForm.wachtwoord.value;
     const klanten = await getKlantenLijst();
+
     for (const klant of klanten) {
         if (klant.email === emailForm && klant.wachtwoord === wachtwoord) {
-            ingelogd = true;
+            setIngelogd(true);
             break;
         }
     }
     if (ingelogd) {
-        document.getElementById("login").innerHTML = "Mijn account";
-        window.location.href = `../pages/gegevens.html?email=${encodeURIComponent(emailForm)}`;
+        const encodedEmail = encodeURIComponent(emailForm);
+        window.location.href = `../pages/gegevens.html?email=${encodedEmail}`;
     } else {
         alert("wachtwoord of email klopt niet");
     }
@@ -34,5 +35,3 @@ async function getKlantenLijst() {
     klanten.forEach(klant => klantenLijst.push(klant))
     return klantenLijst;
 }
-
-export {ingelogd};

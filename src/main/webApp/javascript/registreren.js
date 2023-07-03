@@ -69,7 +69,8 @@ async function registreren(event) {
                 console.log(data);
             }).catch((error) => {
                 console.log(error);
-            })}
+            })
+    }
 }
 
 async function getKlanten(email) {

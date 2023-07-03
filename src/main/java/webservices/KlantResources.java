@@ -2,7 +2,6 @@ package webservices;
 
 import model.Bedrijf;
 import model.Klant;
-import model.KlantRequest;
 
 import javax.annotation.PostConstruct;
 import javax.json.Json;
@@ -73,13 +72,40 @@ public class KlantResources {
         return Response.ok(responseObject.build()).build();
     }
 
-//    @Path("{email}")
-//    @PUT
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    public Response editGegevens(@PathParam("email") String email, KlantRequest klantRequest) {
-//
-//    }
+    @PUT
+    @Path("{email}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response editKlant(@PathParam("email") String email, String jsonBody) {
+        JsonObjectBuilder responseObject = Json.createObjectBuilder();
+
+        try {
+            StringReader stringReader = new StringReader(jsonBody);
+            JsonReader jsonReader = Json.createReader(stringReader);
+            JsonObject jsonObject = jsonReader.readObject();
+
+            String voornaam = jsonObject.getString("nieuwVoornaam");
+            String achternaam = jsonObject.getString("nieuwAchternaam");
+            String woonplaats = jsonObject.getString("nieuwWoonplaats");
+            String straatnaam = jsonObject.getString("nieuwStraatnaam");
+            int huisNummer = Integer.parseInt(jsonObject.getString("nieuwHuisNummer"));
+            String telefoonnummer = jsonObject.getString("nieuwTelefoonnummer");
+
+            Klant klant = Bedrijf.getKlant(bedrijf.getKlanten(), email);
+
+            assert klant != null;
+            klant.setVoornaam(voornaam);
+            klant.setAchternaam(achternaam);
+            klant.setWoonplaats(woonplaats);
+            klant.setStraatnaam(straatnaam);
+            klant.setHuisNummer(huisNummer);
+            klant.setTelefoonnummer(telefoonnummer);
+
+            responseObject.add("message", "Klant gewijzigd");
+        } catch (Exception e) {
+            responseObject.add("message", "Error: " + e.getMessage());
+        }
+        return Response.ok(responseObject.build()).build();
+    }
 }
 
 

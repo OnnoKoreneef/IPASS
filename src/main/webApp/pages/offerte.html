@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Durenbeg</title>
+  <link rel="stylesheet" href="../styles/algemeen.css" />
+  <link rel="stylesheet" href="../styles/offerte.css">
+  <script type="module" src="../javascript/ingelogd.js"></script>
+  <script type="module" src="../javascript/offerte.js"></script>
+</head>
+<body>
+<header>
+  <img src="../images/Logo.jpg" alt="logo" class="logo">
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="duurzaamheid.html">Duurzaamheid</a></li>
+      <li><a href="renovatie.html">Renovatie</a></li>
+      <li><a href="begeleiding.html">Begeleiding</a></li>
+      <li><a href="advies.html">Advies</a></li>
+      <li><a href="afspraak.html">Afspraak maken</a></li>
+      <li><a href="login.html"  id="login">Login</a></li>
+      <li><a class="active" href="offerte.html">Offerte</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <form id="offerteForm" autocomplete="off">
+    <fieldset>
+      <legend>Offerte</legend>
+      <label for="klantType-field" class="selectie">Klanttype:</label>
+      <br>
+      <select id="klantType-field" name="klantType" class="offerteForm">
+        <option></option>
+        <option>Particulier</option>
+        <option>Gemeente</option>
+        <option>Zakelijk</option>
+        <option>VvE</option>
+      </select>
+      <br><br>
+      <label class="selectie">Onderwerp:</label>
+      <br>
+      <input id="planmatig-field" name="plantmatig" type="checkbox" class="offerteForm" value="Planmatig onderhoud">
+      <label for="planmatig-field">Planmatig onderhoud</label>
+      <br>
+      <input id="renovatie-field" name="renovatie" type="checkbox" class="offerteForm" value="Renovatie">
+      <label for="renovatie-field">Renovatie</label>
+      <br>
+      <input id="duurzaamheid-field" name="duurzaamheid" type="checkbox" class="offerteForm" value="Duurzaamheid">
+      <label for="duurzaamheid-field">Duurzaamheid</label>
+      <br>
+      <input id="advies-field" name="advies" type="checkbox" class="offerteForm" value="Advies">
+      <label for="advies-field">Advies</label>
+      <br>
+      <input id="begeleiding-field" name="begeleiding" type="checkbox" class="offerteForm" value="Begeleiding">
+      <label for="begeleiding-field">Begeleiding</label>
+      <br><br>
+      <label class="selectie">Onderdeel:</label>
+      <br>
+      <input id="installaties-field" name="installaties" type="checkbox" class="offerteForm" value="Installaties">
+      <label for="installaties-field">Installaties</label>
+      <br>
+      <input id="kozijnen-field" name="kozijnen" type="checkbox" class="offerteForm" value="Kozijnen">
+      <label for="kozijnen-field">Kozijnen</label>
+      <br>
+      <input id="gevel-field" name="gevel" type="checkbox" class="offerteForm" value="Gevel">
+      <label for="gevel-field">Gevel</label>
+      <br>
+      <input id="beton-field" name="beton" type="checkbox" class="offerteForm" value="Beton">
+      <label for="beton-field">Beton</label>
+      <br>
+      <input id="dak-field" name="dak" type="checkbox" class="offerteForm" value="Dak">
+      <label for="dak-field">Dak</label>
+      <br>
+      <input id="overig-field" name="overig" type="checkbox" class="offerteForm" value="Overig">
+      <label for="overig-field">Overig</label>
+      <br><br>
+      <button type="submit" class="button">Send</button>
+      <br><br>
+      <button type="reset" class="button">Cancel</button>
+      <label for="omschrijving-field" class="selectie" id="omschrijving-label">Omschrijving:</label>
+      <br>
+      <textarea id="omschrijving-field" name="omschrijving"></textarea>
+    </fieldset>
+  </form>
+</main>
+</body>
+</html>

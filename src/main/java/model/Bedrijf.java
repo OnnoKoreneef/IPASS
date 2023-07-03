@@ -11,7 +11,7 @@ public class Bedrijf {
     private int btwNummer;
     private ArrayList<Medewerker> medewerkers = new ArrayList<Medewerker>();
     private ArrayList<Klant> klanten = new ArrayList<Klant>();
-    private ArrayList<Afspraak> afspraken = new ArrayList<>();
+    private ArrayList<Offerte> offertes = new ArrayList<>();
 
     public Bedrijf(String naam, String woonplaats, String straatnaam, int nummer, int kvk, int btwNummer) {
         this.naam = naam;
@@ -29,8 +29,8 @@ public class Bedrijf {
     public void addKlant(Klant klant) {
         klanten.add(klant);
     }
-    public void addAfspraak(Afspraak afspraak) {
-        afspraken.add(afspraak);
+    public void addOfferte(Offerte offerte) {
+        offertes.add(offerte);
     }
 
     public static Klant getKlant(ArrayList<Klant> klanten , String email) {
@@ -50,7 +50,7 @@ public class Bedrijf {
         return klanten;
     }
 
-    public ArrayList<Afspraak> getAfspraken() {
-        return afspraken;
+    public ArrayList<Offerte> getOffertes() {
+        return offertes;
     }
 }

@@ -1,9 +1,16 @@
 .inputAfspraak {
     position: absolute;
-    left: 7%
+    left: 12%;
 }
 
 .cancelAfspraak {
     position: absolute;
-    left: 7%
+    left: 24%;
+    width: 10%;
+}
+
+#submitAfspraak {
+    position: absolute;
+    width: 10%;
+    left: 12%;
 }

@@ -1,0 +1,21 @@
+.selectie {
+    font-weight: bold;
+}
+
+.button {
+    width: 10%;
+}
+
+#omschrijving-field {
+    position: absolute;
+    left: 20%;
+    top: calc(18% + 20px);
+    width: 40%;
+    height: 55%;
+}
+
+#omschrijving-label {
+    position: absolute;
+    left: 20%;
+    top: 18%
+}

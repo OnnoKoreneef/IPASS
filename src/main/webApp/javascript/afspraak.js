@@ -14,8 +14,6 @@ async function createAfspraak(event) {
         onderwerp: afspraakForm.onderwerp.value,
     }
 
-    console.log(data);
-
     if (isIngevuld(data) === false) {
         alert("Niet alles is ingevuld");
     } else if (inToekomst(data.datum) === false) {
@@ -23,7 +21,8 @@ async function createAfspraak(event) {
     } else if (beginTijdVoorEindTijd(data.beginTijd, data.eindTijd) === false) {
         alert("Begintijd is niet voor eindtijd");
     } else {
-        const url = `http://localhost:8080/restservices/afspraken/onnokoreneef@hotmail.nl`;
+        const emailKlant = "onnokoreneef@hotmail.nl"
+        const url = `http://localhost:8080/restservices/afspraken/${emailKlant}`;
         const options = {
             method: "POST",
             headers: {
@@ -45,7 +44,7 @@ async function createAfspraak(event) {
 function isIngevuld(gegevens) {
     let ingevuld = false;
     if (gegevens.datum !== "" && gegevens.beginTijd !== "" && gegevens.eindTijd !== "" && gegevens.woonplaats !== ""
-        && gegevens.straatnaam !== "" && gegevens.huisnummer !== "" && gegevens.onderwerp !== "") {
+        && gegevens.straatnaam !== "" && gegevens.huisNummer !== "" && gegevens.onderwerp !== "") {
         ingevuld = true;
     }
     return ingevuld;

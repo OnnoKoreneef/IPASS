@@ -5,5 +5,12 @@
 
 .cancelRegistreren {
     position: absolute;
-    left: 12%
+    left: 24%;
+    width: 10%;
+}
+
+#submitRegisteren {
+    position: absolute;
+    width: 10%;
+    left: 12%;
 }

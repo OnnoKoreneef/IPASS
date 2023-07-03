@@ -24,16 +24,17 @@ public class MyServletContextListener implements ServletContextListener {
         Afspraak afspraak1 = new Afspraak(LocalDate.now().minusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Bennekom", "cederlaan", 5, "Duurzaamheid");
         Afspraak afspraak2 = new Afspraak(LocalDate.now().plusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Bennekom", "cederlaan", 5, "Duurzaamheid");
         Afspraak afspraak3 = new Afspraak(LocalDate.now().plusDays(1), LocalTime.now(), LocalTime.now().plusHours(1), "Losser", "De pol", 5, "Advies");
-        Offerte offerte = new Offerte("Duurzaamheid", 100, 1, LocalDate.now().minusDays(1), "Ja", "Dit is een omschrijving");
+        Offerte offerte = new Offerte("Duurzaamheid", 100, 1, LocalDate.now().minusDays(1), LocalDate.now().plusMonths(3), "Dit is een omschrijving", "Particulier", "Dak");
 
         durenbeg.addMedewerker(pierre);
         durenbeg.addMedewerker(aileen);
         durenbeg.addKlant(onno);
         durenbeg.addKlant(friso);
+        durenbeg.addOfferte(offerte);
         afspraak1.setMedewerker(pierre);
         afspraak2.setMedewerker(pierre);
         afspraak3.setMedewerker(aileen);
-        afspraak1.setOfferte(offerte);
+        onno.addOfferte(offerte);
         onno.addAfspraak(afspraak1);
         onno.addAfspraak(afspraak2);
         friso.addAfspraak(afspraak3);

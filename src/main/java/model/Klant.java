@@ -12,6 +12,7 @@ public class Klant {
     private int huisNummer;
     private String telefoonnummer;
     private ArrayList<Afspraak> afspraken = new ArrayList<Afspraak>();
+    private ArrayList<Offerte> offertes = new ArrayList<>();
 
 
     public Klant(String voornaam, String achternaam, String email, String wachtwoord, String woonplaats, String straatnaam, int huisNummer, String telefoonnummer) {
@@ -56,9 +57,36 @@ public class Klant {
     public String getTelefoonnummer() {
         return telefoonnummer;
     }
-    public ArrayList<Afspraak> getAfspraken(){ return afspraken;}
+
+    public ArrayList<Afspraak> getAfspraken() { return afspraken; }
+
+    public ArrayList<Offerte> getOffertes() { return offertes; }
+
+    public void setVoornaam(String voornaam) {
+        this.voornaam = voornaam;
+    }
+
+    public void setAchternaam(String achternaam) {
+        this.achternaam = achternaam;
+    }
+
+    public void setWoonplaats(String woonplaats) { this.woonplaats = woonplaats; }
+
+    public void setStraatnaam(String straatnaam) {
+        this.straatnaam = straatnaam;
+    }
+
+    public void setHuisNummer(int huisNummer) {
+        this.huisNummer = huisNummer;
+    }
+
+    public void setTelefoonnummer(String telefoonnummer) {
+        this.telefoonnummer = telefoonnummer;
+    }
 
     public void addAfspraak(Afspraak afspraak) {
         afspraken.add(afspraak);
     }
+    public void addOfferte(Offerte offerte) { offertes.add(offerte); }
+
 }

@@ -7,16 +7,31 @@ public class Offerte {
     private int bedrag;
     private int nummer;
     private LocalDate datum;
-    private String geldigheid;
+    private LocalDate geldigheid;
     private String omschrijving;
+    private String klantType;
+    private String onderdeel;
 
-    public Offerte(String onderwerp, int bedrag, int nummer, LocalDate datum, String geldigheid, String omschrijving) {
+
+    public Offerte(String onderwerp, int nummer, LocalDate datum, LocalDate geldigheid, String omschrijving, String klantType, String onderdeel) {
+        this.onderwerp = onderwerp;
+        this.nummer = nummer;
+        this.datum = datum;
+        this.geldigheid = geldigheid;
+        this.omschrijving = omschrijving;
+        this.klantType = klantType;
+        this.onderdeel = onderdeel;
+    }
+
+    public Offerte(String onderwerp, int bedrag, int nummer, LocalDate datum, LocalDate geldigheid, String omschrijving, String klantType, String onderdeel) {
         this.onderwerp = onderwerp;
         this.bedrag = bedrag;
         this.nummer = nummer;
         this.datum = datum;
         this.geldigheid = geldigheid;
         this.omschrijving = omschrijving;
+        this.klantType = klantType;
+        this.onderdeel = onderdeel;
     }
 
     public String getOnderwerp() {
@@ -35,11 +50,19 @@ public class Offerte {
         return datum;
     }
 
-    public String getGeldigheid() {
+    public LocalDate getGeldigheid() {
         return geldigheid;
     }
 
     public String getOmschrijving() {
         return omschrijving;
+    }
+
+    public String getKlantType() {
+        return klantType;
+    }
+
+    public String getOnderdeel() {
+        return onderdeel;
     }
 }

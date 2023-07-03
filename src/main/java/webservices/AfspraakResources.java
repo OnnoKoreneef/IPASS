@@ -25,19 +25,10 @@ public class AfspraakResources {
     @Context
     private ServletContext servletContext;
     private Bedrijf bedrijf;
-    private Klant onno;
 
     @PostConstruct
     private void init() {
         bedrijf = (Bedrijf) servletContext.getAttribute("bedrijf");
-        onno = (Klant) servletContext.getAttribute("onnokoreneef@hotmail.nl");
-    }
-
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public ArrayList<Afspraak> getAlleAfspraken() {
-        Bedrijf bedrijf = (Bedrijf) servletContext.getAttribute("bedrijf");
-        return bedrijf.getAfspraken();
     }
 
     @GET

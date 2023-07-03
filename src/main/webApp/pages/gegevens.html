@@ -10,7 +10,6 @@
 <body>
     <header>
         <img src="../images/Logo.jpg" alt="logo" class="logo">
-        <h1>Durenbeg</h1>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -19,8 +18,8 @@
                 <li><a href="begeleiding.html">Begeleiding</a></li>
                 <li><a href="advies.html">Advies</a></li>
                 <li><a href="afspraak.html">Afspraak maken</a></li>
-                <li><a href="login.html" id="login">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="gegevens.html" class="active">Mijn account</a></li>
+                <li><a href="offerte.html">Offerte</a></li>
             </ul>
         </nav>
     </header>
@@ -51,7 +50,6 @@
                         <th class="tabelHead">Straatnaam</th>
                         <th class="tabelHead">Huisnummer</th>
                         <th class="tabelHead">Onderwerp</th>
-                        <th class="tabelHead">Offerte</th>
                     </tr>
                 </table>
             </fieldset>
@@ -65,6 +63,7 @@
                         <th class="tabelHead">Datum</th>
                         <th class="tabelHead">Geldigheid</th>
                         <th class="tabelHead">Omschrijving</th>
+                        <th class="tabelHead">Onderdeel</th>
                     </tr>
                 </table>
             </fieldset>
@@ -91,11 +90,8 @@
                     <label for="telefoonnummer-field">Telefoonnummer: </label>
                     <input id="telefoonnummer-field" name="telefoonnummerForm" type="tel" class="inputRegistreren">
                     <br><br>
-                    <label for="email-field">Email: </label>
-                    <input id="email-field" name="emailForm" type="email" class="inputRegistreren">
-                    <br><br>
                     <button id="save" type="submit">Save</button>
-                    <button id="close">Close</button>
+                    <button id="close" type="button">Close</button>
                 </fieldset>
             </form>
         </dialog>
