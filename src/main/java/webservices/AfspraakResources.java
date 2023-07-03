@@ -60,7 +60,14 @@ public class AfspraakResources {
 
             ArrayList<Medewerker> medewerkers = bedrijf.getMedewerkers();
             Afspraak afspraak = new Afspraak(datum, beginTijd, eindTijd, woonplaats, straatnaam, huisNummer, onderwerp);
-            afspraak.setMedewerker(medewerkers.get(0));
+
+            for(Medewerker medewerker : medewerkers) {
+                if (!medewerker.isBezet(afspraak)) {
+                    afspraak.setMedewerker(medewerker);
+                    break;
+                }
+            }
+
             Klant klant = Bedrijf.getKlant(bedrijf.getKlanten(), email);
             assert klant != null;
             klant.addAfspraak(afspraak);

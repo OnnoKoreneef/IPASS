@@ -22,17 +22,6 @@ public class Bedrijf {
         this.btwNummer = btwNummer;
     }
 
-    public void addMedewerker(Medewerker medewerker) {
-        medewerkers.add(medewerker);
-    }
-
-    public void addKlant(Klant klant) {
-        klanten.add(klant);
-    }
-    public void addOfferte(Offerte offerte) {
-        offertes.add(offerte);
-    }
-
     public static Klant getKlant(ArrayList<Klant> klanten , String email) {
         for (Klant klant: klanten) {
             if (klant.getEmail().equals(email)) {
@@ -52,5 +41,15 @@ public class Bedrijf {
 
     public ArrayList<Offerte> getOffertes() {
         return offertes;
+    }
+
+    public void addMedewerker(Medewerker medewerker) {
+        medewerkers.add(medewerker);
+    }
+    public void addKlant(Klant klant) {
+        klanten.add(klant);
+    }
+    public void addOfferte(Offerte offerte) {
+        offertes.add(offerte);
     }
 }

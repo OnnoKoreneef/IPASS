@@ -87,6 +87,6 @@ public class Klant {
     public void addAfspraak(Afspraak afspraak) {
         afspraken.add(afspraak);
     }
-    public void addOfferte(Offerte offerte) { offertes.add(offerte); }
 
+    public void addOfferte(Offerte offerte) { offertes.add(offerte); }
 }

@@ -39,16 +39,8 @@ public class MyServletContextListener implements ServletContextListener {
         onno.addAfspraak(afspraak2);
         friso.addAfspraak(afspraak3);
 
-
         ServletContext servletContext = sce.getServletContext();
         servletContext.setAttribute("bedrijf", durenbeg);
-        servletContext.setAttribute("phkoreneef@hotmail.com", pierre);
-        servletContext.setAttribute("aileenjones@hotmail.com", aileen);
-        servletContext.setAttribute("onnokoreneef@hotmail.nl", onno);
-        servletContext.setAttribute("frisoharff@hotmail.com", friso);
-        servletContext.setAttribute("afspraak1", afspraak1);
-        servletContext.setAttribute("afspraak2", afspraak2);
-        servletContext.setAttribute("afspraak3", afspraak3);
     }
 
     @Override

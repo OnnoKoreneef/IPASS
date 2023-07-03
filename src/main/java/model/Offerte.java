@@ -24,14 +24,8 @@ public class Offerte {
     }
 
     public Offerte(String onderwerp, int bedrag, int nummer, LocalDate datum, LocalDate geldigheid, String omschrijving, String klantType, String onderdeel) {
-        this.onderwerp = onderwerp;
+        this(onderwerp, nummer, datum, geldigheid, omschrijving, klantType, onderdeel);
         this.bedrag = bedrag;
-        this.nummer = nummer;
-        this.datum = datum;
-        this.geldigheid = geldigheid;
-        this.omschrijving = omschrijving;
-        this.klantType = klantType;
-        this.onderdeel = onderdeel;
     }
 
     public String getOnderwerp() {
