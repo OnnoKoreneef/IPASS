@@ -30,6 +30,8 @@ async function vraagOfferte(event){
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
+                const encodedEmail = encodeURIComponent(email);
+                window.location.href = `../pages/gegevens.html?email=${encodedEmail}`;
             }).catch((error) => {
                 console.log(error);
             })
